@@ -1,0 +1,26 @@
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-8 text-center">
+      <%# aqui estamos accediendo a cada uno de los metodos de la variable de instancia, que a su vez son las columnas o atributos, de cada entidad o tabla de la base de datos %>
+      <h1> <%= @article.title %> </h1> 
+      <p> <%=@article.created_at.strftime("%d-%m-%y") %></p> <%# .strftime() es un metodo de ruby para darle formato a las fechas  %>
+      <p> <%= @article.content %> </p> 
+    </div>
+  </div>
+
+  <div class="row justify-content-center text-center pt-5">
+    <div class="col">
+      <%= link_to "índice de articulos", articles_path %>
+    </div>
+      <div class="col">
+        <% if autor_signed_in? %>
+         <%= link_to "editar Articulo", edit_article_path(@article) %>
+        <% end%>
+      </div>
+      <div class="col">
+        <% if autor_signed_in? %>
+         <%= button_to "eliminar Articulo", @article, method: :delete, data: {confirm: "seguro que quieres eliminar el articulo?"} %>
+        <% end%>
+      </div>
+  </div>
+</div>
