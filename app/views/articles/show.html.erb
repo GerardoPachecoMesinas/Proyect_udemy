@@ -23,4 +23,17 @@
         <% end%>
       </div>
   </div>
+  <!--
+    <% @article.comments.each do |comment| %>
+      <%= comment.name %>
+      <%= comment.text %>
+    <% end%>
+  -->
+  <p> <%= @article.comments.count%> <%= @article.comments.count > 1 ? "Comentarios" : "Comentario" %> </p>
+  <%= render @article.comments %> <%# este render junto con el partial utilizado sustituyen el cilo each comentado arriba%>
+
+  <p> Deja tu comentario </p>
+  <br>
+  <%= render "comments/form" %>
+
 </div>

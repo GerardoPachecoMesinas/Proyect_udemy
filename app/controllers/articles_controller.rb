@@ -42,16 +42,16 @@ class ArticlesController < ApplicationController
 
   private
 
-  def article_params
-    params.require(:article).permit(:title, :content, :autor_id)
-  end
+    def article_params
+      params.require(:article).permit(:title, :content, :autor_id)
+    end
 
-  def set_article
-    @article = Article.find(params[:id])
-  end
+    def set_article
+      @article = Article.find(params[:id])
+    end
 
-  def correct_autor
-    @article = current_autor.articles.find_by(id: params[:id])
-    redirect_to articles_path, notice: "No estas autorizado a editar este artículo" if @article.nil?
-  end
+    def correct_autor
+      @article = current_autor.articles.find_by(id: params[:id])
+      redirect_to articles_path, notice: "No estas autorizado a editar este artículo" if @article.nil?
+    end
 end
