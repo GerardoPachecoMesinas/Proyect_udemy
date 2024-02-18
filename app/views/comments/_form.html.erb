@@ -1,0 +1,16 @@
+<%= form_for([@article, @article.comments.build]) do |form| %>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :text, style: "display: block" %>
+    <%= form.text_area :text %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
