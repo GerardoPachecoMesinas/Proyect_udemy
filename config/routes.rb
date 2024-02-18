@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :autors
+
   get "contacto", to: 'statics#contact'
   get "nosotros", to: 'statics#about_us'
 
