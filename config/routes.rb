@@ -1,11 +1,18 @@
 Rails.application.routes.draw do
+  # get 'articles/new'
+  # get 'articles/index'
+  resources :articles
+
   devise_for :autors
 
   get "contacto", to: 'statics#contact'
   get "nosotros", to: 'statics#about_us'
 
-  get "inicio", to: 'home#index'
-  root "home#index"
+  get "inicio", to: 'articles#index'
+  root "articles#index"
+
+  get "*path" => redirect('/')
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
